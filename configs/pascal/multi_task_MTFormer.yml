@@ -1,0 +1,41 @@
+# Setup
+setup: multi_task
+
+# Database
+train_db_name: PASCALContext
+val_db_name: PASCALContext
+trBatch: 4
+valBatch: 4
+nworkers: 4
+
+# Optimizer and scheduler
+epochs: 100
+optimizer: adamw
+optimizer_kwargs:
+   lr: 0.000025
+   weight_decay: 0.0001
+scheduler: poly
+
+# Model
+model: MTFormer_pascal
+backbone: swim_transformer2
+backbone_kwargs:
+   pretrained: True
+   dilated: False
+head: deeplab2
+
+# Tasks
+task_dictionary:
+   include_semseg: True
+   include_human_parts: True
+   include_sal: True
+
+# Loss kwargs
+loss_kwargs:
+   loss_scheme: baseline_uncertainty
+   loss_weights:
+       semseg: 1.0
+       human_parts: 2.0
+       sal: 30.0
+
+eval_final_10_epochs_only: True
