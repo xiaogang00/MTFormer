@@ -10,9 +10,9 @@ Besides, we design a self-supervised cross-task contrastive learning algorithm f
 
 <img src="./figure/framework.png" width="900"/>
 
-[paper link]("./paper/MTFormer.pdf")
+[paper link](https://github.com/xiaogang00/MTFormer/blob/main/paper/MTFormer.pdf)
 
-## dataset
+## Dataset
 We utilize the datasets processed by https://github.com/SimonVandenhende/Multi-Task-Learning-PyTorch, and you can download the datasets of 
 [NYUD-v2](https://drive.google.com/file/d/14EAEMXmd3zs2hIMY63UhHPSFPDAkiTzw/view)
 and 
