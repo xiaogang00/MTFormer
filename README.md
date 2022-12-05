@@ -57,7 +57,15 @@ During the training, the evaluation will be conducted (if eval_final_10_epochs_o
 
 We provide the pre-trained models for [NYUD-v2](https://drive.google.com/file/d/1b9kWyrmtl1HNzRPBeFfMFfKJe4Pvkl2m/view?usp=sharing) and [PASCAL](https://drive.google.com/file/d/1KYuK-ZAldG9021z1xHryUBYpx2xxCJRo/view?usp=sharing). Please download and put them under the dictionary of 'output/NYUD/swim_transformer2' and 'output/PASCALContext/swim_transformer2'
 
-And then run the code which can automatically compute the results
+For each dictionary, load 'checkpoint.pth.tar' and the best results can be viewed by
+```
+import torch
+result=torch.load('checkpoint.pth.tar')
+print(result['best_result'])
+```
+The best model's weights are stored in 'best_model.pth.tar'. 'log_file.txt' is the training log file which record the training loss and evaluation results.
+
+You can run the code which can automatically compute the visual results (stored in 'results' of each dictionary)
 ```
 python main_CL_nyud.py --config_env configs/env.yml --config_exp configs/nyud/multi_task_MTFormer.yml
 
